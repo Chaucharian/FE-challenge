@@ -14,7 +14,7 @@ import { Gi3DHammer } from "react-icons/gi";
 export default function BurgerButton(a: any) {
   return (
     <Flex position="fixed" bg="black" height="10px" width="100%">
-      <Icon name="menu" as={Gi3DHammer} size="60px" color="#FFF" />
+      <Icon name="menu" as={Gi3DHammer} size={60} color="red" />
     </Flex>
   );
 }

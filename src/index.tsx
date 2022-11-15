@@ -5,15 +5,25 @@ import { store } from "./app/store";
 import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+import { NativeBaseProvider } from "native-base";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/api/queryClient";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <NativeBaseProvider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </BrowserRouter>
+      </NativeBaseProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

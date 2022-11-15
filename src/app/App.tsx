@@ -16,16 +16,12 @@ import { Error } from "@/screens/public/Error";
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Characters />} />
-            <Route path="favourites" element={<Favourites />} />
-            <Route path="*" element={<Error />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </NativeBaseProvider>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Characters />} />
+        <Route path="favourites" element={<Favourites />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
   );
 }

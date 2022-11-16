@@ -10,9 +10,7 @@ import {
   Outlet,
 } from "react-router-dom";
 
-export default function Error() {
-  console.log("CJA");
-
+const Error = () => {
   return (
     <Flex>
       <Text color="blue.100" fontSize="30px">
@@ -20,4 +18,6 @@ export default function Error() {
       </Text>
     </Flex>
   );
-}
+};
+
+export default Error;

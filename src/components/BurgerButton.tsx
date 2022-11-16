@@ -1,5 +1,12 @@
-import React from "react";
-import { NativeBaseProvider, Box, Flex, Text, Icon } from "native-base";
+import React, { useState } from "react";
+import {
+  NativeBaseProvider,
+  Box,
+  Flex,
+  Text,
+  Icon,
+  Pressable,
+} from "native-base";
 import {
   Routes,
   Route,
@@ -9,12 +16,32 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import { Gi3DHammer } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
+import { AiOutlineClose } from "react-icons/ai";
 
-export default function BurgerButton(a: any) {
+import Button from "./Button";
+import { useOpen } from "@/commons/hooks";
+
+const BurgerButton = ({ open: controlledOpen, onClick }: any) => {
+  const { open, setOpen } = useOpen();
+
+  const click = () => {
+    setOpen(!open);
+    onClick();
+  };
+
   return (
-    <Flex position="fixed" bg="black" height="10px" width="100%">
-      <Icon name="menu" as={Gi3DHammer} size={60} color="red" />
-    </Flex>
+    <Button onClick={click}>
+      <Flex justifyContent="center">
+        {controlledOpen ?? open ? (
+          <GiHamburgerMenu color="white" size="25px" />
+        ) : (
+          <GrClose color="white" size="25px" />
+        )}
+      </Flex>
+    </Button>
   );
-}
+};
+
+export default BurgerButton;

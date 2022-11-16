@@ -9,17 +9,18 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import useGetCharacters from "./hooks/useGetCharacters";
+import { useGetCharacters, useItems } from "./hooks";
+import { List } from "@/components";
+import { useSelector } from "react-redux";
 
-export default function Characters() {
-  console.log("CJA");
+const Characters = () => {
+  const { characters, loading } = useGetCharacters();
+  const items = useItems(characters);
 
-  useGetCharacters();
   return (
-    <Flex>
-      <Text color="blue.100" fontSize="30px">
-        CHARACTERS
-      </Text>
+    <Flex overflow="scroll">
+      <List items={items} loading={loading} />
     </Flex>
   );
-}
+};
+export default Characters;

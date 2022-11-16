@@ -9,16 +9,14 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import Header from "./components/Header";
 
-const Layout = (a: any) => {
-  console.log("adasd", a);
+export default function Menu({ open }: any) {
   return (
-    <Flex bg="#1E1E1E">
-      <Header />
-      <Outlet />
+    <Flex height="100vh" width="100%" display={open ? "block" : "none"}>
+      <ul>
+        <li>CHARACTERS</li>
+        <li>FAVOURITES</li>
+      </ul>
     </Flex>
   );
-};
-
-export default Layout;
+}

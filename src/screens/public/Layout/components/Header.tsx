@@ -12,24 +12,34 @@ import {
 import { BurgerButton } from "@/components";
 import { useOpen } from "@/commons/hooks";
 import Menu from "./Menu";
+import { routes } from "@/screens/public";
 
 const Header: FC<any> = () => {
   const { open, setOpen } = useOpen(false);
+  const location = useLocation();
+  const title = routes.find((route) => route.path === location.pathname)?.name;
 
   const openMenu = () => setOpen(!open);
   return (
-    <Box position="static" bg="red" height="80px" width="100%">
-      <Flex
-        width="100%"
-        justifyContent="space-between"
-        direction="row"
-        p={theme.space["0.5"]}
-      >
-        <Menu open={open} />
+    <Box
+      position="fixed"
+      zIndex="1"
+      width="100%"
+      p={theme.space["0.5"]}
+      bg="#1E1E1E"
+    >
+      {/* <Menu open={open} /> */}
+      <Flex justifyContent="space-between" direction="row">
         <BurgerButton onClick={openMenu} open={open} />
-        <Text color="blue.100" fontSize="30px">
-          CHARACTERS
-        </Text>
+        <Flex width="100%" justifyContent="center" alignItems="center">
+          <Text
+            color={theme.colors.white}
+            fontWeight={theme.fontWeights.bold}
+            fontSize="15px"
+          >
+            {title}
+          </Text>
+        </Flex>
       </Flex>
     </Box>
   );

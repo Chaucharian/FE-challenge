@@ -1,14 +1,8 @@
 import React from "react";
 import { NativeBaseProvider, Box, Flex, Text } from "native-base";
-import {
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { Route } from "@/commons/types";
+
+export const route: Route = { name: "Favourites", path: "/favourites" };
 
 const Favourites = () => {
   console.log("FAv");

@@ -2,7 +2,6 @@ import React from "react";
 import { NativeBaseProvider, Box, Flex, Text } from "native-base";
 import {
   Routes,
-  Route,
   Link,
   useNavigate,
   useLocation,
@@ -12,13 +11,16 @@ import {
 import { useGetCharacters, useItems } from "./hooks";
 import { List } from "@/components";
 import { useSelector } from "react-redux";
+import { Route } from "@/commons/types";
+
+export const route: Route = { name: "Characters", path: "/" };
 
 const Characters = () => {
   const { characters, loading } = useGetCharacters();
   const items = useItems(characters);
 
   return (
-    <Flex overflow="scroll">
+    <Flex height="100vh">
       <List items={items} loading={loading} />
     </Flex>
   );

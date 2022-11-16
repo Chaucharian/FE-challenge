@@ -1,38 +1,72 @@
-import { Flex, Box, theme, Icon, Pressable, Text, Badge } from "native-base";
+import {
+  Flex,
+  Box,
+  theme,
+  Icon,
+  Pressable,
+  Text,
+  Badge,
+  Stack,
+} from "native-base";
 import React, { FC } from "react";
 
-import { Gi3DHammer } from "react-icons/gi";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { HiOutlineLocationMarker } from "react-icons/hi";
+import { Tag } from ".";
+import Button from "./Button";
 
 export interface ItemProps {
   title: string;
   description: string;
+  isFavourite: boolean;
   tags: any;
   onClick: any;
 }
 
 export type Items = ItemProps[];
 
-const Item: FC<ItemProps> = ({ title, description, tags, onClick }) => {
+const Item: FC<ItemProps> = ({
+  title,
+  description,
+  isFavourite,
+  tags,
+  onClick,
+}) => {
   return (
-    <Flex>
-      <Flex justifyContent="space-between">
-        <Box>
+    <Flex
+      borderBottomColor="#463B5E"
+      borderBottomWidth="1"
+      mb={theme.space[0.5]}
+    >
+      <Flex justifyContent="space-between" direction="row">
+        <Stack direction="column" space={theme.space["0.5"]}>
           <Text color={theme.colors.white} fontWeight={theme.fontWeights.bold}>
             {title}
           </Text>
-          <Text>{description}</Text>
-        </Box>
+          <Text color="blueGray.400">{description}</Text>
+        </Stack>
 
-        <Icon name="menu" as={Gi3DHammer} size={60} color="red" />
+        <Flex justifyContent="center">
+          <Button onClick={onClick}>
+            {isFavourite ? (
+              <AiFillHeart size={20} color="#A2D1B1" />
+            ) : (
+              <AiOutlineHeart size={20} color="#A2D1B1" />
+            )}
+          </Button>
+        </Flex>
       </Flex>
 
-      <Flex>
-        {tags.map((tagText: any) => (
-          <div onClick={onClick}>
-            <Badge>{tagText}</Badge>
-          </div>
+      <Box mb={theme.space[1]} mt={theme.space[0.5]}>
+        {tags.map((text: string) => (
+          <Tag
+            text={text}
+            leftIcon={
+              <HiOutlineLocationMarker size={15} color={theme.colors.white} />
+            }
+          />
         ))}
-      </Flex>
+      </Box>
     </Flex>
   );
 };

@@ -29,13 +29,15 @@ export interface ListProps {
 const List: FC<ListProps> = ({ items, loading }) => {
   console.log(loading);
   return loading ? (
-    <Spinner color={theme.colors.warning} />
+    <Flex justifyContent="center" alignItems="center">
+      <Spinner size={40} color="blueGray.400" />
+    </Flex>
   ) : (
-    <Stack direction="column" space={theme.space["1/2"]}>
+    <Flex direction="column">
       {items.map((data: ItemProps) => (
         <Item {...data} />
       ))}
-    </Stack>
+    </Flex>
   );
 };
 

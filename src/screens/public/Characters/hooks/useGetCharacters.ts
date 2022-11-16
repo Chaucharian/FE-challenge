@@ -11,7 +11,7 @@ export const useGetCharacters = () => {
     unknown,
     PeopleResponse,
     [string]
-  >([PEOPLE_KEY]);
+  >([PEOPLE_KEY], { refetchOnWindowFocus: false });
   const people = peopleResponse?.results ?? [];
   const planetsResponse: any = useQueries({
     queries: people.map((people) => {

@@ -37,7 +37,7 @@ const BurgerButton = ({ open: controlledOpen, onClick }: any) => {
         {controlledOpen ?? open ? (
           <GiHamburgerMenu color="white" size="25px" />
         ) : (
-          <GrClose color="white" size="25px" />
+          <GrClose color="#FFF" size="25px" />
         )}
       </Flex>
     </Button>

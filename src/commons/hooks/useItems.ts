@@ -20,7 +20,7 @@ const useItems = (characters?: People[]) => {
         ),
         onClick: () => dispatch(change(character)),
       })),
-    [newItems]
+    [newItems, dispatch, favourites]
   );
 
   return items;

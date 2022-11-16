@@ -1,16 +1,7 @@
-import React from "react";
-import { NativeBaseProvider, Box, Flex, Text } from "native-base";
-import {
-  Routes,
-  Link,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { Flex } from "native-base";
 import { useGetCharacters } from "./hooks";
 import { List } from "@/components";
-import { useSelector } from "react-redux";
+
 import { Route } from "@/commons/types";
 import { useItems } from "@/commons/hooks";
 

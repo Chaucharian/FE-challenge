@@ -1,14 +1,5 @@
-import {
-  Flex,
-  Box,
-  theme,
-  Icon,
-  Pressable,
-  Text,
-  Badge,
-  Stack,
-} from "native-base";
-import React, { FC } from "react";
+import { Flex, Box, theme, Text, Stack } from "native-base";
+import { FC } from "react";
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";

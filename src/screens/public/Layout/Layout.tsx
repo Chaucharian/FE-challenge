@@ -9,7 +9,12 @@ const Layout = () => {
   return (
     <Flex bg="#1E1E1E">
       <Header />
-      <Flex p={theme.space["0.5"]} mt="40px">
+      <Flex
+        p={theme.space["1"]}
+        mr={{ lg: theme.space[16] }}
+        ml={{ lg: theme.space[16] }}
+        mt="40px"
+      >
         <Outlet />
       </Flex>
     </Flex>

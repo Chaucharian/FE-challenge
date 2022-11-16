@@ -1,27 +1,9 @@
-import React, { useState } from "react";
-import {
-  NativeBaseProvider,
-  Box,
-  Flex,
-  Text,
-  Icon,
-  Pressable,
-} from "native-base";
-import {
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { Flex } from "native-base";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import { AiOutlineClose } from "react-icons/ai";
-
 import Button from "./Button";
 import { useOpen } from "@/commons/hooks";
+import { useEffect } from "react";
 
 const BurgerButton = ({ open: controlledOpen, onClick }: any) => {
   const { open, setOpen } = useOpen();
@@ -30,6 +12,12 @@ const BurgerButton = ({ open: controlledOpen, onClick }: any) => {
     setOpen(!open);
     onClick();
   };
+
+  useEffect(() => {
+    if (typeof controlledOpen !== undefined) {
+      setOpen(controlledOpen);
+    }
+  }, [controlledOpen, setOpen]);
 
   return (
     <Button onClick={click}>

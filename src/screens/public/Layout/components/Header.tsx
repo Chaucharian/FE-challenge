@@ -19,10 +19,15 @@ const Header: FC<any> = () => {
       position="fixed"
       zIndex="1"
       width="100%"
-      p={theme.space["0.5"]}
+      p={theme.space["1"]}
       bg={theme.colors.primary}
     >
-      <Flex justifyContent="space-between" direction="row">
+      <Flex
+        justifyContent="space-between"
+        direction="row"
+        pr={{ lg: theme.space[16] }}
+        pl={{ lg: theme.space[16] }}
+      >
         <BurgerButton onClick={changeMenuState} open={open} />
         <Flex width="100%" justifyContent="center" alignItems="center">
           <Text

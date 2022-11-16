@@ -39,13 +39,15 @@ const Menu: FC<MenuProps> = ({
       width="100%"
       display={open ? "block" : "none"}
     >
-      <Ul>
-        {options.map(({ name, path }) => (
-          <li key={name} onClick={onOptionClick}>
-            <Link to={path}>{name}</Link>
-          </li>
-        ))}
-      </Ul>
+      <Flex pr={{ lg: theme.space[16] }} pl={{ lg: theme.space[16] }}>
+        <Ul>
+          {options.map(({ name, path }) => (
+            <li key={name} onClick={onOptionClick}>
+              <Link to={path}>{name}</Link>
+            </li>
+          ))}
+        </Ul>
+      </Flex>
     </Flex>
   );
 };

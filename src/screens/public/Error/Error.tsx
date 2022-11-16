@@ -1,20 +1,10 @@
-import React from "react";
-import { NativeBaseProvider, Box, Flex, Text } from "native-base";
-import {
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { Flex, Text } from "native-base";
 
 const Error = () => {
   return (
     <Flex>
-      <Text color="blue.100" fontSize="30px">
-        Error path not found
+      <Text color="blue.100" fontSize="30px" textAlign="center">
+        Error! page not found
       </Text>
     </Flex>
   );

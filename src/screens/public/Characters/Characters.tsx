@@ -8,10 +8,11 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import { useGetCharacters, useItems } from "./hooks";
+import { useGetCharacters } from "./hooks";
 import { List } from "@/components";
 import { useSelector } from "react-redux";
 import { Route } from "@/commons/types";
+import { useItems } from "@/commons/hooks";
 
 export const route: Route = { name: "Characters", path: "/" };
 

@@ -58,8 +58,9 @@ const Item: FC<ItemProps> = ({
       </Flex>
 
       <Box mb={theme.space[1]} mt={theme.space[0.5]}>
-        {tags.map((text: string) => (
+        {tags.map((text: string, index: number) => (
           <Tag
+            key={index}
             text={text}
             leftIcon={
               <HiOutlineLocationMarker size={15} color={theme.colors.white} />

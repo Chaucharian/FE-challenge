@@ -4,7 +4,7 @@ import Item, { ItemProps } from "./Item";
 
 export interface ListProps {
   items: ItemProps[];
-  loading: boolean;
+  loading?: boolean;
 }
 
 const List: FC<ListProps> = ({ items, loading }) => {
@@ -15,7 +15,7 @@ const List: FC<ListProps> = ({ items, loading }) => {
   ) : (
     <Flex direction="column">
       {items.map((data: ItemProps) => (
-        <Item {...data} />
+        <Item {...data} key={data.title} />
       ))}
     </Flex>
   );

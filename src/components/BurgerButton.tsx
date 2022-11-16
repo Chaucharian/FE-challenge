@@ -31,7 +31,6 @@ const BurgerButton = ({ open: controlledOpen, onClick }: any) => {
     onClick();
   };
 
-  console.log(open);
   return (
     <Button onClick={click}>
       <Flex justifyContent="center">

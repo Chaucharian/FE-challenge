@@ -1,16 +1,36 @@
-import React from "react";
-import { NativeBaseProvider, Box, Flex, Text } from "native-base";
-import {
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
+import { Flex } from "native-base";
+import styled from "styled-components";
+import { routes } from "@/screens/public/routes";
+import { Route } from "@/commons/types";
+import { FC } from "react";
+import { Link } from "react-router-dom";
+import { theme } from "@/app/theme";
 
-export default function Menu({ open }: any) {
+export interface MenuProps {
+  open: boolean;
+  options?: Route[];
+  onOptionClick: () => void;
+}
+
+export const defaultOptions = routes;
+
+const Ul = styled.ul`
+  margin-top: 72px;
+  list-style-type: none;
+  text-decoration: none;
+  a {
+    font-size: 22px;
+    font-family: "Urbanist";
+    color: ${theme.colors.white};
+    text-decoration: none;
+  }
+`;
+
+const Menu: FC<MenuProps> = ({
+  open,
+  options = defaultOptions,
+  onOptionClick,
+}) => {
   return (
     <Flex
       position="static"
@@ -19,10 +39,15 @@ export default function Menu({ open }: any) {
       width="100%"
       display={open ? "block" : "none"}
     >
-      <ul>
-        <li>CHARACTERS</li>
-        <li>FAVOURITES</li>
-      </ul>
+      <Ul>
+        {options.map(({ name, path }) => (
+          <li key={name} onClick={onOptionClick}>
+            <Link to={path}>{name}</Link>
+          </li>
+        ))}
+      </Ul>
     </Flex>
   );
-}
+};
+
+export default Menu;

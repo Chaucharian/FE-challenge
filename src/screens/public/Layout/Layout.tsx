@@ -2,6 +2,8 @@ import React from "react";
 import { NativeBaseProvider, Box, Flex, Text, theme } from "native-base";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
+import { useOpen } from "@/commons/hooks";
+import Menu from "./components/Menu";
 
 const Layout = () => {
   return (

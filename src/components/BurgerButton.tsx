@@ -17,7 +17,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GrClose } from "react-icons/gr";
+import { IoMdClose } from "react-icons/io";
 import { AiOutlineClose } from "react-icons/ai";
 
 import Button from "./Button";
@@ -31,13 +31,14 @@ const BurgerButton = ({ open: controlledOpen, onClick }: any) => {
     onClick();
   };
 
+  console.log(open);
   return (
     <Button onClick={click}>
       <Flex justifyContent="center">
-        {controlledOpen ?? open ? (
-          <GiHamburgerMenu color="white" size="25px" />
+        {controlledOpen || open ? (
+          <IoMdClose color="#FFF" size="25px" />
         ) : (
-          <GrClose color="#FFF" size="25px" />
+          <GiHamburgerMenu color="#FFF" size="25px" />
         )}
       </Flex>
     </Button>

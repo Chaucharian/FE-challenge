@@ -1,16 +1,4 @@
-import React from "react";
-import { NativeBaseProvider, Box } from "native-base";
-import {
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  useLocation,
-  BrowserRouter,
-  Navigate,
-  Outlet,
-} from "react-router-dom";
-// import { Layout } from "../screens/public/Layout";
+import { Routes, Route } from "react-router-dom";
 import { Layout, Characters, Favourites } from "@/screens/public";
 import { Error } from "@/screens/public/Error";
 

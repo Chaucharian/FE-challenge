@@ -1,7 +1,6 @@
 import { Flex } from "native-base";
 import { useGetCharacters } from "./hooks";
 import { List } from "@/components";
-
 import { Route } from "@/commons/types";
 import { useItems } from "@/commons/hooks";
 

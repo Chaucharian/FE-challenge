@@ -1,7 +1,6 @@
-import { People, PeopleResponse, PlanetsResponse } from "@/commons/types";
+import { PeopleResponse } from "@/commons/types";
 import { useQueries, useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 export const PEOPLE_KEY = "people";
 
@@ -12,7 +11,10 @@ export const useGetCharacters = () => {
     PeopleResponse,
     [string]
   >([PEOPLE_KEY], { refetchOnWindowFocus: false });
-  const people = peopleResponse?.results ?? [];
+  const people = useMemo(
+    () => peopleResponse?.results ?? [],
+    [peopleResponse?.results]
+  );
   const planetsResponse: any = useQueries({
     queries: people.map((people) => {
       return {

@@ -1,6 +1,5 @@
 import { Flex, Box, theme, Text, Stack } from "native-base";
 import { FC } from "react";
-
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { Tag } from ".";

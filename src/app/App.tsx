@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Layout, Characters, Favourites } from "@/screens/public";
-import { Error } from "@/screens/public/Error";
+import { Layout, Characters, Favourites, Error } from "@/screens/public";
 
 export default function App() {
   return (

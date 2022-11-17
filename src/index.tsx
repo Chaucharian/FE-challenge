@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import { store } from "./app/store/store";
 import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
-// import "./index.css";
 import { NativeBaseProvider } from "native-base";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClientProvider } from "@tanstack/react-query";
